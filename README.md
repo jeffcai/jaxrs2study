@@ -3,13 +3,15 @@ JAX-RS 2.0 Study
 
 To get started with:
 
+- Apache Wink, latest version is 1.4.0, seems it's not maintained any more
+- Apache CXF
 - Jersey
-- Apache Wink
 
 It will cover:
 
 - Annotations
 - Security
+	- HTTP Basic
 - Configuration, Deployment
 - Test
 - ... more to be added

@@ -17,7 +17,6 @@ public class MyResource {
     @Context
     private HttpHeaders headers;
 
-    @Secured
     @GET
     @Produces(MediaType.TEXT_PLAIN)
     public Response getIt() {
