@@ -13,6 +13,7 @@
     <modules>
         <module>apache-wink</module>
         <module>wadl-service</module>
+        <module>apache-cxf</module>
     </modules>
 
     <dependencyManagement>

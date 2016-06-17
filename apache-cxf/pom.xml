@@ -8,39 +8,34 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-
-    <artifactId>apache-wink</artifactId>
-    <name>Apache Wink Study</name>
+    <artifactId>apache-cxf</artifactId>
+    <name>Apache CXF Study</name>
 
     <properties>
-        <wink.version>1.4</wink.version>
+        <cxf.version>3.1.6</cxf.version>
     </properties>
+
 
     <dependencies>
         <dependency>
-            <groupId>org.apache.wink</groupId>
-            <artifactId>wink-client</artifactId>
-            <version>${wink-version}</version>
+            <groupId>org.apache.cxf</groupId>
+            <artifactId>cxf-core</artifactId>
+            <version>${cxf.version}</version>
         </dependency>
         <dependency>
-            <groupId>org.apache.wink</groupId>
-            <artifactId>wink-server</artifactId>
-            <version>${wink-version}</version>
+            <groupId>org.apache.cxf</groupId>
+            <artifactId>cxf-rt-frontend-jaxrs</artifactId>
+            <version>${cxf.version}</version>
         </dependency>
         <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-api</artifactId>
-            <version>1.5.8</version>
+            <groupId>org.apache.cxf</groupId>
+            <artifactId>cxf-rt-rs-extension-providers</artifactId>
+            <version>${cxf.version}</version>
         </dependency>
         <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-log4j12</artifactId>
-            <version>1.5.8</version>
-        </dependency>
-        <dependency>
-            <groupId>log4j</groupId>
-            <artifactId>log4j</artifactId>
-            <version>1.2.14</version>
+            <groupId>org.codehaus.jackson</groupId>
+            <artifactId>jackson-jaxrs</artifactId>
+            <version>1.9.13</version>
         </dependency>
     </dependencies>
 
