@@ -1,0 +1,1 @@
+keytool -genkey -alias jetty -keyalg RSA -keystore jetty.keystore -storepass secret -keypass secret -dname "CN=localhost"
