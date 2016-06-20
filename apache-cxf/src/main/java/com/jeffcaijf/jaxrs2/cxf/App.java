@@ -1,6 +1,6 @@
 package com.jeffcaijf.jaxrs2.cxf;
 
-import org.codehaus.jackson.jaxrs.JacksonJaxbJsonProvider;
+import org.codehaus.jackson.jaxrs.JacksonJsonProvider;
 
 import javax.ws.rs.core.Application;
 import java.util.HashSet;
@@ -15,7 +15,7 @@ public class App extends Application {
     public Set<Class<?>> getClasses() {
         Set<Class<?>> classes = new HashSet<Class<?>>();
         classes.add(AuthenticationFilter.class);
-        classes.add(JacksonJaxbJsonProvider.class);
+        classes.add(JacksonJsonProvider.class);
         return classes;
     }
 
