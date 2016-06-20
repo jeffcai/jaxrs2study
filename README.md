@@ -14,9 +14,13 @@ It will cover:
 - Security
 	- HTTP Basic
 	- Token based
-- Client API	
-- Configuration, Deployment
-- Test
+- Data binding
+	- JacksonJsonProvider
+- Filter and Interceptor
+- Configuration
+	- Application: getClasses vs. getSingletons
+- Unit Test
+	- WebClient with local transport which protocol is lile: local://myapp/resource/...
 - ... more to be added
 
 ## References
