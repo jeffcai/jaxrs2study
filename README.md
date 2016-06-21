@@ -50,6 +50,8 @@ It will cover:
 
 It shows: annotations, data binding with JaksonJsonProvider, authentication filter with data binding, unit test with local transport and WebClient, and embedded Jetty with https enabled.
 
+Question: How to make tokens expire? with Guava cache or use another scheduled thread to evict expired tokens?
+
 ### Apache Wink
 
 Not to recommend using it.
