@@ -11,17 +11,26 @@ To get started with:
 It will cover:
 
 - Annotations
+- Application
+	- getClasses vs getSingletons
 - Security
 	- HTTP Basic
 	- Token based
+	- OAuth
+	- SAML
+	- Role-based
 - Data binding
 	- JacksonJsonProvider
 - Filter and Interceptor
+	- AuthenticationFilter
 - Configuration
 	- Application: getClasses vs. getSingletons
 - Unit Test
 	- WebClient with local transport which protocol is lile: local://myapp/resource/...
-- ... more to be added
+- Deployment
+	- Embedded Jetty: confgiure web app and https
+	- Liberty: configure web app, classpath and https
+	- WAS: configure web app, classpath and https?
 
 ## References
 
