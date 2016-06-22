@@ -1,6 +1,7 @@
 package com.jeffcaijf.jaxrs2.cxf;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 /**
  * Created by jeffcai on 6/22/2016.
@@ -20,6 +21,16 @@ public class Item {
         this.name = name;
         this.descption = descption;
         this.price = price;
+    }
+
+    @Override
+    public String toString() {
+        return "Item{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", descption='" + descption + '\'' +
+                ", price=" + price.setScale(2, BigDecimal.ROUND_CEILING) +
+                '}';
     }
 
     public String getId() {

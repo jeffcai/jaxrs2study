@@ -12,7 +12,7 @@ import java.util.List;
 /**
  * Created by jeffcai on 6/22/2016.
  */
-@Path("/item/")
+@Path("/itemservice/")
 public class ItemService {
 
     @GET
