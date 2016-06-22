@@ -3,9 +3,12 @@ JAX-RS 2.0 Study
 
 To get started with:
 
+- JSR 339
 - Apache CXF
 - Jersey
 - Apache Wink: latest version is 1.4.0, it's not maintained any more and not recommended
+
+![Mind map](/images/jax-rs 2 mindmap.png)
 
 It will cover:
 
