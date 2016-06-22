@@ -30,6 +30,7 @@ public class App extends Application {
         classes.add(new MyResource());
         classes.add(new AuthenticationEndpoint());
         classes.add(new OrderService());
+        classes.add(new ItemService());
         return classes;
     }
 

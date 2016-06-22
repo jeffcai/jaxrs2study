@@ -10,6 +10,7 @@ To get started with:
 It will cover:
 
 - Annotations
+	- inject	
 
 - Application
 	- getClasses vs getSingletons: former one is to create instances per requests, the latter one is to use single instance for all requests
@@ -36,8 +37,24 @@ It will cover:
 - Configuration
 	- Application: getClasses vs. getSingletons
 
-- Unit Test
+- Expires, Cache-Control, Revalidation with Last-Modified & ETag for scaling 
+	- Expires: timestamp will be present on response header, set it with the ResponseBuilder.expires API
+	- Cache-Control: private, public, no-cache, no-store, no-transform, max-age, s-max-age, set it with the ResponseBuilder.cacheControl API
+	- Revalidation
+		- Last-Modified along with response/If-Modified-Since coming from request, set it with the ResponseBuilder.lastModified API
+		- ETag along with response/If-None-Match coming from request: generate EntityTag and validate with the Request.evaluatePreconditions API, no matching then proceed to send new etag back to client with the ResponseBuilder.tag API
+	- Concurrency 
+	
+	> If these values do not match the values within the If-Match and If-Unmodified-Since headers sent with the request, evaluatePreconditions() sends back an instance of a ResponseBuilder initialized with the error code 412, “Precondition Failed.” A Response object is built and sent back to the client. If the preconditions are met, the service performs the update and sends back a success code of 204, “No Content.”
+
+- Asynchronous 
+	- client invoker
+	- server async response
+
+- Client API and Unit Test
 	- WebClient with local transport which protocol is lile: local://myapp/resource/...
+
+- WADL
 
 - Deployment
 	- Embedded Jetty: confgiure web app and https
@@ -62,5 +79,6 @@ It's implemented by referring the blog: http://weli.iteye.com/blog/2305096
 
 ## References
 
+- The book "RESTful Java with JAX-RS 2.0"
 - [Configure HTTPS for jetty-maven-plugin 9.0.x](http://juplo.de/configure-https-for-jetty-maven-plugin-9-0-x/)
 - [Best practice for REST token-based authentication with JAX-RS and Jersey](http://stackoverflow.com/questions/26777083/best-practice-for-rest-token-based-authentication-with-jax-rs-and-jersey)

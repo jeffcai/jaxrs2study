@@ -4,8 +4,8 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
-import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
+import javax.ws.rs.core.*;
+import java.util.Date;
 
 /**
  * Created by jeffcai on 6/17/2016.
@@ -26,9 +26,28 @@ public class MyResource {
     @GET
     @Path("/unsecure/{msg}")
     @Produces(MediaType.TEXT_PLAIN)
-    public Response getUnsecureInfo(@PathParam("msg") final String msg) {
+    public Response getUnsecureInfo(@PathParam("msg") final String msg, @Context Request request) {
         System.out.println("index: " + index++);
-        return Response.ok("[Unsecured] Hi, " + msg).build();
+
+        // ETag
+        String message = "[Unsecured] Hi, " + msg;
+        EntityTag tag = new EntityTag(Integer.toString(message.hashCode()));
+        Response.ResponseBuilder builder = request.evaluatePreconditions(tag);
+        if (builder != null) {
+            // If these values do not match the values within the If-Match and If-Unmodified-Since headers
+            // sent with the request, evaluatePreconditions() sends back an instance of a ResponseBuilder initialized
+            // with the error code 412, “Precondition Failed.” A Response object is built and sent back to the client.
+            // If the preconditions are met, the service performs the update and sends back
+            // a success code of 204, “No Content.”
+
+//            Response.status(Response.Status.PRECONDITION_FAILED).build();
+//            Response.status(Response.Status.NO_CONTENT).build();
+
+            return builder.build();
+        }
+        builder = Response.ok(message);
+        builder.tag(tag);
+        return builder.build();
     }
 
 }
