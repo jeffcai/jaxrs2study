@@ -65,7 +65,9 @@ It will cover:
 	- Improvement tips
 	- Comparison
 
-- WADL
+- WADL (Web Application Description Language)
+
+> The Web Application Description Language (WADL) is a machine-readable XML description of HTTP-based web services. WADL models the resources provided by a service and the relationships between them. WADL is intended to simplify the reuse of web services that are based on the existing HTTP architecture of the Web. WADL is the REST equivalent of SOAP's Web Services Description Language (WSDL), which can also be used to describe REST web services.
 
 - Deployment
 	- Embedded Jetty: confgiure web app and https
