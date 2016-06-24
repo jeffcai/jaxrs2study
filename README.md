@@ -52,10 +52,9 @@ It will cover:
 
 - Asynchronous 
 	- client invoker: Futures or callbacks?	
+	- server async response
 
 > In general, use futures if you need to join a set of requests you’ve invoked asynchronously. By join, I mean you need to know when each of the requests has finished and you need to perform another task after all the asynchronous requests are complete. For example, maybe you are gathering information from a bunch of different web services to build a larger aggregated document (a mashup). Use callbacks when each invocation is its own distinct unit and you do not have to do any coordination or mashing up.
-
-	- server async response
 
 > In 2009, the Servlet 3.0 specification introduced asynchronous HTTP. With the Servlet 3.0 API, you can suspend the current server-side request and have a separate thread, other than the calling thread, handle sending back a response to the client. For a server push app, you could then have a small handful of threads manage sending responses back to polling clients and avoid all the overhead of the “one thread per connection” model. 
 
