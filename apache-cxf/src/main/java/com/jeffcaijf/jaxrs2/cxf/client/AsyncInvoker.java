@@ -16,6 +16,8 @@ import java.util.concurrent.*;
  */
 public class AsyncInvoker {
 
+    public static final String ORDER_QUERY_SERVICE_URL = "http://localhost:8080/myapp/resource/itemservice/query";
+
     public static void main(String[] args) {
         // call in parallel with executor service
         syncInvoke();
@@ -36,7 +38,7 @@ public class AsyncInvoker {
                 public void run() {
                     Client client = ClientBuilder.newClient().register(JacksonJsonProvider.class);
 
-                    List<Item> items = client.target("http://localhost:8080/myapp/resource/itemservice/query")
+                    List<Item> items = client.target(ORDER_QUERY_SERVICE_URL)
                             .request().get(new GenericType<List<Item>>() {
                             });
                     System.out.println("index " + j + " sync returned items: " + items);
@@ -52,9 +54,8 @@ public class AsyncInvoker {
         Client client = ClientBuilder.newClient().register(JacksonJsonProvider.class);
 
         // Use Future
-        Future<Response> future = client.target("http://localhost:8080/myapp/resource/itemservice/query")
-                .request()
-                .async().get();
+        Future<Response> future = client.target(ORDER_QUERY_SERVICE_URL)
+                .request().async().get();
 
         Response res = null;
         try {
@@ -80,9 +81,8 @@ public class AsyncInvoker {
         Client client = ClientBuilder.newClient().register(JacksonJsonProvider.class);
 
         // Use Callback
-        Future<Response> future = client.target("http://localhost:8080/myapp/resource/itemservice/query")
-                .request()
-                .async().get(new InvocationCallback<Response>() {
+        Future<Response> future = client.target(ORDER_QUERY_SERVICE_URL)
+                .request().async().get(new InvocationCallback<Response>() {
 
             @Override
             public void completed(Response response) {
