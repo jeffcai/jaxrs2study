@@ -31,6 +31,10 @@ public class TokenGenerator {
         }
     }
 
+    public static boolean isValid(String key) {
+        return cache.asMap().containsKey(key);
+    }
+
     public static Cache getCache() {
         return cache;
     }

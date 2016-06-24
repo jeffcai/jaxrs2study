@@ -33,16 +33,15 @@ public class AuthenticationFilter implements ContainerRequestFilter {
         // Extract the token from the HTTP Authorization header
         String token = authorizationHeader.substring("Bearer".length()).trim();
 
-        try {
-            // Validate the token
-            validateToken(token);
-        } catch (Exception e) {
+        // Validate the token
+        if (!validateToken(token)) {
             requestContext.abortWith(Response.status(Response.Status.UNAUTHORIZED).build());
         }
     }
 
-    private void validateToken(String token) throws Exception {
+    private boolean validateToken(String token) {
         // Check if it was issued by the server and if it's not expired
         // Throw an Exception if the token is invalid
+        return TokenGenerator.isValid(token);
     }
 }
