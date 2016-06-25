@@ -20,7 +20,7 @@ public class AuthenticationEndpoint {
     public Response authenticateUser(Credentials credentials) {
         try {
             // Authenticate the user using the credentials provided
-            authenticate(credentials.getUsername(), credentials.getUsername());
+            authenticate(credentials.getUsername(), credentials.getPassword());
 
             // Issue a token for the user
             String token = issueToken(credentials.getUsername());

@@ -1,5 +1,7 @@
 package com.jeffcaijf.jaxrs2.cxf;
 
+import javax.annotation.security.PermitAll;
+import javax.annotation.security.RolesAllowed;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
